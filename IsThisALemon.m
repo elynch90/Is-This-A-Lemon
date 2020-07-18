@@ -47,13 +47,13 @@ valTestSet = [ones(size(valTestSet, 1), 1) valTestSet]
 pred = sigmoid(valTestSet * all_theta');
 pVal = round(pred);
 
-fprintf('\nTesting Set Accuracy: %f\n', mean(double(pVal(1:10, 1) == valLabels)) * 100);
+fprintf('\nTesting Set Accuracy: %f\n', mean(double(pVal == valLabels)) * 100);
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 %========== Predict for One-Vs-All =========
 
-pred = predictOneVsAll(all_theta, X);
+% pred = predictOneVsAll(all_theta, X);
 
-fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
+% fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
 

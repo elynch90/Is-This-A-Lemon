@@ -1,20 +1,24 @@
 % ========== Process the raw pngs from the training set folder and write to a .mat file ==========
+% run this script when it is necissary to process or reprocess the raw training set
+% TODO: optimization
+
 pkg load image % import forge imag pkg
 % load image matrix and label vector
 imgFolder = dir('rawTrainingImgs');
 validationFolderNeg = dir('validationImgs/negative');
-validationFolderPos = dir('validationImgs/postive');
+validationFolderPos = dir('validationImgs/positive');
 
 m = length(imgFolder) - 3; % number of images in the dir to process excluding meta data
 mValidationNeg = length(validationFolderNeg)
 mValidationPos = length(validationFolderPos)
 X = zeros(m, 400); % initialize output matrix 400 columns from 20 x 20 images
-valTestSet = zeros(mValidationNeg + mValidationPos, 400)
+valTestSet = zeros(mValidationNeg + mValidationPos, 400);
 
 %========= preprocess training set images =========
+printf('Running...\n');
 for i=4:m, % for each image excluding metadata
-    display(imgFolder(i).name)
-    curImg = imread(strcat('rawTrainingImgs/', imgFolder(i).name)) % current img itteration
+    % display(imgFolder(i).name)
+    curImg = imread(strcat('rawTrainingImgs/', imgFolder(i).name)); % current img itteration
     % convert  to greyscale
     greyscaleImg = rgb2gray(curImg);
     processedImg = imresize(greyscaleImg, [20, 20]);  % resize image to 20 x 20
@@ -32,9 +36,10 @@ y = ones(m, 1);
 
 %========= Preprocessing for validation testing set =========
 % prepare negative testing examples
+printf('Preparing negative testing examples...\n');
 for i=4:mValidationNeg, % for each image excluding metadata
-    display(validationFolder(i).name)
-    curImgNeg = imread(strcat('validationImgs/negative', validationFolder(i).name)) % current img itteration
+    display(validationFolderNeg(i).name)
+    curImgNeg = imread(strcat('validationImgs/negative/', validationFolderNeg(i).name)); % current img itteration
     % convert  to greyscale
     greyscaleImg = rgb2gray(curImgNeg);
     processedImg = imresize(greyscaleImg, [20, 20]);  % resize image to 20 x 20
@@ -43,13 +48,14 @@ for i=4:mValidationNeg, % for each image excluding metadata
     processedImg = reshape(processedImg, [1, 400])
     processedImg
     % store in output matrix
-    valTestSet(i -3, :) = processedImg
+    valTestSet(i -3, :) = processedImg;
 end
 
 % prepare positve testing examples
+printf('Preparing positive testing examples...\n');
 for i=4:mValidationPos, % for each image excluding metadata
-    display(validationFolder(i).name)
-    curImgPos = imread(strcat('validationImgs/positive', validationFolder(i).name)) % current img itteration
+    display(validationFolderPos(i).name)
+    curImgPos = imread(strcat('validationImgs/positive/', validationFolderPos(i).name)); % current img itteration
     % convert  to greyscale
     greyscaleImg = rgb2gray(curImgPos);
     processedImg = imresize(greyscaleImg, [20, 20]);  % resize image to 20 x 20
@@ -58,7 +64,7 @@ for i=4:mValidationPos, % for each image excluding metadata
     processedImg = reshape(processedImg, [1, 400])
     processedImg
     % store in output matrix
-    valTestSet(mValidationNeg + i -3, :) = processedImg
+    valTestSet(mValidationNeg + i -3, :) = processedImg;
 end
 
 %========== create the labels for the validation set ==========

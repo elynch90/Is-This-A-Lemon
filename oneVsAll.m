@@ -16,7 +16,7 @@ X = [ones(m, 1), X];
 initial_theta = zeros(n + 1, 1);
 
 % set options for fminunc
-options = optimset('GradObj', 'on', 'MaxIter', 50000000000000);
+options = optimset('GradObj', 'on', 'MaxIter', 50000);
 
 % one-versus-many implementation using for loop
 

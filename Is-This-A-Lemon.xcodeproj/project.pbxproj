@@ -6,10 +6,29 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXFileReference section */
+		6890C4E424C15C550061049E /* oneVsAll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = oneVsAll.m; sourceTree = "<group>"; };
+		6890C4E524C15DE60061049E /* lrCostFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lrCostFunction.m; sourceTree = "<group>"; };
+		6890C4E624C1604F0061049E /* sigmoid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sigmoid.m; sourceTree = "<group>"; };
+		6890C4E724C162750061049E /* predictOneVsAll.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = predictOneVsAll.m; sourceTree = "<group>"; };
+		6890C4E824C166CF0061049E /* fmincg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fmincg.m; sourceTree = "<group>"; };
+		68D1F1F624BFC18E0058D6D6 /* IsThisALemon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IsThisALemon.m; sourceTree = "<group>"; };
+		68D1F1F824BFED4E0058D6D6 /* imagePreProcess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = imagePreProcess.m; sourceTree = "<group>"; };
+		68D1F1F924C023620058D6D6 /* displayData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = displayData.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		68D1F1EF24BFC16B0058D6D6 = {
 			isa = PBXGroup;
 			children = (
+				6890C4E824C166CF0061049E /* fmincg.m */,
+				6890C4E724C162750061049E /* predictOneVsAll.m */,
+				6890C4E624C1604F0061049E /* sigmoid.m */,
+				6890C4E524C15DE60061049E /* lrCostFunction.m */,
+				6890C4E424C15C550061049E /* oneVsAll.m */,
+				68D1F1F924C023620058D6D6 /* displayData.m */,
+				68D1F1F824BFED4E0058D6D6 /* imagePreProcess.m */,
+				68D1F1F624BFC18E0058D6D6 /* IsThisALemon.m */,
 			);
 			sourceTree = "<group>";
 		};

@@ -53,7 +53,4 @@ pause;
 
 %========== Predict for One-Vs-All =========
 
-% pred = predictOneVsAll(all_theta, X);
-
-% fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
 

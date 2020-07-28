@@ -4,7 +4,7 @@
 
 pkg load image % import forge imag pkg
 %========== load image matrix and label vector ==========
-trainingFolderPos = dir('rawTrainingImgs/postive');
+trainingFolderPos = dir('rawTrainingImgs/positive');
 trainingFolderNeg = dir('rawTrainingImgs/negative');
 validationFolderNeg = dir('validationImgs/negative');
 validationFolderPos = dir('validationImgs/positive');
@@ -52,7 +52,7 @@ for i=4:mPos, % for each image excluding metadata
 end
 
 %========== create the labels for the validation set ==========
-y = [zeros(mNeg,1); ones(mValidationPos,1)] % add y vector with labels
+y = [zeros(mNeg,1); ones(mPos,1)] % add y vector with labels
 
 %========= Preprocessing for validation testing set =========
 % prepare negative testing examples
